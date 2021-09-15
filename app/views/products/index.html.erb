@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Product Catalogue</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product name</th>
+      <th>Color</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+      <% if product.variant_stock.sum > 0 %>
+        <td><%= product.name %></td>
+        <td><%= product.variant_color.first %></td>
+        <td><%= link_to 'View product', product %></td>
+      <% end %>
+        </tr>
+        <td><%= link_to 'New product',  new_product_path %></td>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category ID</th>
+      <th>Category</th>
+      <th>Subcategories</th>
+      <th>Add New Subcategory</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+      <td><%= category.id %></td>
+      <td><%= category.name %></td>
+      <td><%= category.subcategory_name %></td>
+      <td><%= link_to 'New Subcategory', new_category_subcategory_path(category) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %><br>
